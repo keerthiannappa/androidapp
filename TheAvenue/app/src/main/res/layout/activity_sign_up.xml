@@ -39,26 +39,26 @@
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:id="@+id/signup_email_edittext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="165dp"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true" />
-
-    <EditText
         android:id="@+id/signup_password_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView8"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <EditText
+        android:id="@+id/signup_email_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView7"
         android:ems="10"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="78dp"
-        android:layout_below="@+id/textView7"
-        android:layout_alignParentStart="true" />
+        tools:layout_editor_absoluteY="78dp" />
 
     <Button
         android:id="@+id/signup_button"
@@ -129,4 +129,13 @@
         android:text="*"
         android:textColor="@android:color/holo_red_light"
         android:layout_toEndOf="@+id/signup_email" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_signup"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/signup_button"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
 </RelativeLayout>

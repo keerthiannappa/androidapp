@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,13 +23,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
-    private static final String TAG="EmailPassword";
 
     EditText emid;
     EditText etname;
     EditText etnumber;
     EditText psw;
     Button signup;
+    ProgressBar progressBar;
 
 
     @Override
@@ -41,34 +42,42 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         etname=(EditText) findViewById(R.id.signup_name_edittext);
         etnumber=(EditText) findViewById(R.id.signup_mobile_edittext);
         signup=(Button) findViewById(R.id.signup_button);
+        progressBar=(ProgressBar) findViewById(R.id.progressBar_signup);
         signup.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
-        myRef = FirebaseDatabase.getInstance().getReference();
+        myRef = FirebaseDatabase.getInstance().getReference("User");
 
     }
+    private void createAccount() {
 
-    private void createAccount(String email, String password) {
-        Log.d(TAG, "createAccount:" + email);
+        final String email=emid.getText().toString().trim();
+        final String password=psw.getText().toString().trim();
+        final String mobile=etnumber.getText().toString().trim();
+        final String name=etname.getText().toString().trim();
+
+        Log.d(LoginActivity.TAG, "createAccount:" + email);
         if (!validateForm()) {
             return;
         }
         // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        signup.setVisibility(View.VISIBLE);
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignUp.this, "Failed to Create",
+
+                            Log.w(LoginActivity.TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(SignUp.this, "Failed to Create. Please Try Again Later.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
                         else
-                        { Log.d(TAG, "createUserWithEmail:success");
-                            myRef.child("User").child(emid.getText().toString().trim()).child("Name").setValue(etname.getText().toString().trim());
-                            myRef.child("User").child(emid.getText().toString().trim()).child("Mobile").setValue(etnumber.getText().toString().trim());
-                            myRef.child("User").child(emid.getText().toString().trim()).child("MailID").setValue(emid.getText().toString().trim());
-                            myRef.child("User").child(emid.getText().toString().trim()).child("Password").setValue(psw.getText().toString().trim());
+                        {
+                            Log.d(LoginActivity.TAG, "createUserWithEmail:success");
+                            UserDetails userDetails=new UserDetails(name,mobile,email,password);
+                            myRef.child(mobile).setValue(userDetails);
                             startActivity(new Intent(SignUp.this,LoginActivity.class));
 
                         }
@@ -101,7 +110,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     {
         if(v==signup)
         {
-            createAccount(emid.getText().toString(),psw.getText().toString());
+            progressBar.setVisibility(View.VISIBLE);
+            signup.setVisibility(View.INVISIBLE);
+            createAccount();
 
         }
     }

@@ -21,6 +21,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -47,8 +52,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     public static String staticemail;
 
+    public static String test1;
+    public static String test2;
+
     private FirebaseAuth mAuth;
-    private static final String TAG="EmailPassword";
+    public static final String TAG="EmailPassword";
+
+    private DatabaseReference mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +73,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         auth_failed=(TextView) findViewById(R.id.authfailed);
         emailrequired=(TextView) findViewById(R.id.emailrequired);
         passwordrequired=(TextView) findViewById(R.id.passwordrequired);
+
+        mRef = FirebaseDatabase.getInstance().getReference();
 
         authview=(View) findViewById(R.id.viewauth);
         progressBar=(ProgressBar) findViewById(R.id.progressBar2);
@@ -160,6 +172,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                         } else {
+                                mRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                    test1=dataSnapshot.child("User").child("manojkumar").child("Name").getValue(String.class);
+                                    test2=dataSnapshot.child("User").child("manojkumar").child("Mobile").getValue(String.class);
+                                    //USE THE SAME CHILD PARAMETER TO RETRIVE
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                }
+                            });
+
+
+
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
@@ -218,6 +245,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(v==signup)
         {
             startActivity(new Intent(LoginActivity.this,SignUp.class));
+            finish();
         }
     }
 }
