@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#4f5b62</color>
+
+    <color name="eventcolor1">#b61827</color>
+    <color name="eventcolor2">#ef5350</color>
+    <color name="eventcolor3">#ff867c</color>
+
+    <color name="complaintcolor1">#790e8b</color>
+    <color name="complaintcolor2">#ab47bc</color>
+    <color name="complaintcolor3">#df78ef</color>
+
+    <color name="transactioncolor1">#087f23</color>
+    <color name="transactioncolor2">#4caf50</color>
+    <color name="transactioncolor3">#80e27e</color>
+
+    <color name="mecolor1">#006db3</color>
+    <color name="mecolor2">#039be5</color>
+    <color name="mecolor3">#63ccff</color>
+
+    <color name="logindark">#263238</color>
+    <color name="loginlight">#4f5b62</color>
+</resources>

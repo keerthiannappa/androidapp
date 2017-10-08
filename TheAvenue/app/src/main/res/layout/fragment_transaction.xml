@@ -1,0 +1,45 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.diyasstudios.theavenue.TransactionFragment">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="CYCLE"
+      android:layout_marginTop="20dp"
+      android:layout_marginLeft="10dp"
+      android:id="@+id/transaction_text_cycle"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUE AMOUNT"
+        android:id="@+id/transaction_text_dueamount"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUE DATE"
+        android:id="@+id/transaction_text_duedate"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACCOUNTS"
+        android:id="@+id/transaction_text_accounts"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/transaction_button_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="10dp"
+        android:text="PAY" />
+</FrameLayout>

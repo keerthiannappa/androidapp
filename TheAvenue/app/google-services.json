@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "969962923947",
+    "firebase_url": "https://the-avenue-diyasstudio.firebaseio.com",
+    "project_id": "the-avenue-diyasstudio",
+    "storage_bucket": "the-avenue-diyasstudio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969962923947:android:c60a9373a31efb63",
+        "android_client_info": {
+          "package_name": "com.diyasstudios.theavenue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969962923947-3jk7svm1eoc16tssj51g53vq6lhtscog.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diyasstudios.theavenue",
+            "certificate_hash": "9ec9f350a7c324ee60c6fe3348ba99cea6c9acb1"
+          }
+        },
+        {
+          "client_id": "969962923947-m61fr84ug3o6k6n24op5t4gft2pnlv0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9FovbbR2g0H5QH_NcbbCanajZX6DOcms"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969962923947-m61fr84ug3o6k6n24op5t4gft2pnlv0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

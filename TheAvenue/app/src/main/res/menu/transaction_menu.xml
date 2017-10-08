@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/transaction_navigation_new"
+        android:title="New"
+        android:icon="@drawable/icon_new2"/>
+    <item
+        android:id="@+id/transaction_navigation_existing"
+        android:title="Complaints"
+        android:icon="@drawable/icon_complaints"/>
+
+</menu>
