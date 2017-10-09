@@ -1,5 +1,6 @@
 package com.diyasstudios.theavenue;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,30 +14,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import static android.graphics.Color.parseColor;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
 
     Fragment fragment;
-    BottomNavigationView complaints_navigation;
-    BottomNavigationView navigation;
+    BottomNavigationView complaints_navigation , navigation;
     Toolbar toolbar;
-    LinearLayout linearLayout;
-    TextView nav_name;
-    TextView nav_number;
-    private DatabaseReference mRef;
-    TextView eventtext;
+    TextView nav_name , nav_number , eventtext;
+
+    private FirebaseAuth auth;
 
 
 
+    //sliding navigation bar listener start
     private NavigationView.OnNavigationItemSelectedListener mOn
             = new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -48,13 +43,26 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
 
         }
+
+            if (id == R.id.nav_signout) {
+                Toast.makeText(MainActivity.this, "logged out",
+                        Toast.LENGTH_SHORT).show();
+                auth.signOut();
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
 
 
     }};
+    //sliding navigation bar listener end
 
+
+    //bottom navigation bar listener start
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -66,46 +74,32 @@ public class MainActivity extends AppCompatActivity {
                     fragment=new EventFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
                     complaints_navigation.setVisibility(View.INVISIBLE);
-                    navigation.setBackgroundColor(parseColor("#c62828"));
                     toolbar.setTitle("Events");
-                    toolbar.setBackgroundColor(getResources().getColor(R.color.eventcolor2));
-                    getWindow().setStatusBarColor(getResources().getColor(R.color.eventcolor1));
-                    getWindow().setNavigationBarColor(getResources().getColor(R.color.eventcolor2));
                     return true;
 
                 case R.id.navigation_complaints:
                     fragment=new ComplaintsFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
                     complaints_navigation.setVisibility(View.VISIBLE);
-                    navigation.setBackgroundColor(parseColor("#7b1fa2"));
                     toolbar.setTitle("Complaints");
-                    toolbar.setBackgroundColor(getResources().getColor(R.color.complaintcolor2));
-                    getWindow().setStatusBarColor(getResources().getColor(R.color.complaintcolor1));
-                    getWindow().setNavigationBarColor(getResources().getColor(R.color.complaintcolor2));
                     return true;
 
                 case R.id.navigation_transactions:
                     fragment=new TransactionFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
                     complaints_navigation.setVisibility(View.INVISIBLE);
-                    navigation.setBackgroundColor(parseColor("#4caf50"));
                     toolbar.setTitle("Transactions");
-                    toolbar.setBackgroundColor(getResources().getColor(R.color.transactioncolor2));
-                    getWindow().setStatusBarColor(getResources().getColor(R.color.transactioncolor1));
-                    getWindow().setNavigationBarColor(getResources().getColor(R.color.transactioncolor2));
                     return true;
 
                 case R.id.navigation_me:
                     fragment=new MeFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
                     complaints_navigation.setVisibility(View.INVISIBLE);
-                    navigation.setBackgroundColor(parseColor("#039be5"));
                     toolbar.setTitle("Me");
-                    toolbar.setBackgroundColor(getResources().getColor(R.color.mecolor2));
-                    getWindow().setStatusBarColor(getResources().getColor(R.color.mecolor1));
-                    getWindow().setNavigationBarColor(getResources().getColor(R.color.mecolor2));
                     return true;
 
+
+                //complaints navigation bar items
                 case R.id.transaction_navigation_new:
                     fragment=new ComplaintsFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
@@ -121,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     };
-
+    //bottom navigation bar listener end
 
 
 
@@ -130,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        mRef = FirebaseDatabase.getInstance().getReference();
+        auth=FirebaseAuth.getInstance();
 
         fragment=new EventFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
@@ -140,25 +134,21 @@ public class MainActivity extends AppCompatActivity {
         eventtext=(TextView) findViewById(R.id.event_text);
 
 
-        complaints_navigation = (BottomNavigationView) findViewById(R.id.complaints_navigation2);
+
         nav_name=(TextView) findViewById(R.id.textview_nav_name);
         nav_number=(TextView) findViewById(R.id.textView_nav_number);
 
-        String test=LoginActivity.test1+LoginActivity.test2;
-        eventtext.setText(test);
-
-
         toolbar.setTitle("Events");
-        toolbar.setBackgroundColor(getResources().getColor(R.color.eventcolor2));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.mecolor1));
 
-        linearLayout=(LinearLayout) findViewById(R.id.linear);
 
-        getWindow().setStatusBarColor(getResources().getColor(R.color.eventcolor1));
-        getWindow().setNavigationBarColor(getResources().getColor(R.color.eventcolor2));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.mecolor1));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.mecolor1));
+
 
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setBackgroundColor(parseColor("#c62828"));
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -170,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+
+        complaints_navigation = (BottomNavigationView) findViewById(R.id.complaints_navigation2);
         complaints_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -203,13 +195,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_signout) {
+            auth.signOut();
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

@@ -24,10 +24,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private DatabaseReference myRef;
 
-    EditText emid;
-    EditText etname;
-    EditText etnumber;
-    EditText psw;
+    EditText emid,etname,etnumber,psw;
     Button signup;
     ProgressBar progressBar;
 
@@ -37,17 +34,26 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        //EditText field variables initialized
         emid=(EditText) findViewById(R.id.signup_email_edittext);
         psw=(EditText) findViewById(R.id.signup_password_edittext);
         etname=(EditText) findViewById(R.id.signup_name_edittext);
         etnumber=(EditText) findViewById(R.id.signup_mobile_edittext);
+
+        //button variable and its listener initialized
         signup=(Button) findViewById(R.id.signup_button);
-        progressBar=(ProgressBar) findViewById(R.id.progressBar_signup);
         signup.setOnClickListener(this);
+
+        //progressbar initialized
+        progressBar=(ProgressBar) findViewById(R.id.progressBar_signup);
+
+        //firebase variables initialized
         mAuth = FirebaseAuth.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference("User");
 
     }
+
+    //creating user(sign up)
     private void createAccount() {
 
         final String email=emid.getText().toString().trim();
@@ -86,6 +92,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         // [END create_user_with_email]
     }
 
+
+    //Checking entered data
     private boolean validateForm() {
         boolean valid = true;
 
@@ -105,7 +113,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
         return valid;
     }
+    //checking complete
 
+
+    //button listener
     public void onClick(View v)
     {
         if(v==signup)

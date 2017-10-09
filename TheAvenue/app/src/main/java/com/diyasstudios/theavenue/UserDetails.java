@@ -6,8 +6,10 @@ package com.diyasstudios.theavenue;
 
 public class UserDetails {
 
+    //variables declared
     String Name,Mobile,EmailID,Password;
 
+    //constructor
     public UserDetails(String name, String mobile, String emailID, String password) {
         Name = name;
         Mobile = mobile;
@@ -15,6 +17,7 @@ public class UserDetails {
         Password = password;
     }
 
+    //getters
     public String getName() {
         return Name;
     }

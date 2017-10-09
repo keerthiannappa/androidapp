@@ -35,25 +35,16 @@ import static android.graphics.Color.parseColor;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     ScrollView scrollView;
-    TranslateAnimation animation;
-    TranslateAnimation animation2;
+    TranslateAnimation animation , animation2;
     ImageView theavenue;
-    Button login;
-    Button signup;
-    EditText emailtext;
-    EditText passwordtext;
-    TextView auth_failed;
-    TextView emailrequired;
-    TextView passwordrequired;
-    TextView auth_failed_icon;
+    Button login , signup;
+    EditText emailtext , passwordtext;
+    TextView auth_failed , emailrequired , passwordrequired;
     View authview;
     ProgressBar progressBar;
     float x,y,a,b;
 
     public static String staticemail;
-
-    public static String test1;
-    public static String test2;
 
     private FirebaseAuth mAuth;
     public static final String TAG="EmailPassword";
@@ -64,17 +55,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }
+
+        //UI elements initalization
         theavenue=(ImageView) findViewById(R.id.theavenue);
+
         scrollView=(ScrollView) findViewById(R.id.login_scrollview);
+
         login=(Button) findViewById(R.id.login_button);
         signup=(Button) findViewById(R.id.login_button_signup);
+
         emailtext=(EditText) findViewById(R.id.email_edit_text);
         passwordtext=(EditText) findViewById(R.id.password_edit_text);
+
         auth_failed=(TextView) findViewById(R.id.authfailed);
         emailrequired=(TextView) findViewById(R.id.emailrequired);
         passwordrequired=(TextView) findViewById(R.id.passwordrequired);
 
-        mRef = FirebaseDatabase.getInstance().getReference();
 
         authview=(View) findViewById(R.id.viewauth);
         progressBar=(ProgressBar) findViewById(R.id.progressBar2);
@@ -82,9 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getWindow().setStatusBarColor(getResources().getColor(R.color.logindark));
         getWindow().setNavigationBarColor(getResources().getColor(R.color.loginlight));
 
-
-
-
+        //animation definition start
         x=theavenue.getLeft();a=scrollView.getLeft();
         y=theavenue.getTop(); b=scrollView.getRight();
         animation = new TranslateAnimation(x,x,y-500,y);
@@ -119,8 +119,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onAnimationEnd(Animation arg0) {y -= 500;
             }
         });
+        //animation definition end
+
+        //start animation
         theavenue.startAnimation(animation);
         scrollView.startAnimation(animation2);
+
+
+        //delay event
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -129,13 +135,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             }
         },1500);
-        mAuth = FirebaseAuth.getInstance();
 
+
+
+
+        //button listeners
         login.setOnClickListener(this);
         signup.setOnClickListener(this);
-
-
     }
+
+
     @Override
     public void onStart() {
         super.onStart();
@@ -149,6 +158,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
 
+    //sign-in definition
     private void signIn(String email, String password) {
 
         Log.d(TAG, "signIn:" + email);
@@ -171,22 +181,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (!task.isSuccessful()) {
 
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                        } else {
-                                mRef.addValueEventListener(new ValueEventListener() {
+                        }
+                        else {
+                            mRef = FirebaseDatabase.getInstance().getReference("User");
+                             mRef.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                    test1=dataSnapshot.child("User").child("manojkumar").child("Name").getValue(String.class);
-                                    test2=dataSnapshot.child("User").child("manojkumar").child("Mobile").getValue(String.class);
+                                   String test1=dataSnapshot.child("8428421605").child("name").getValue(String.class);
+                                    String test2=dataSnapshot.child("8428421605").child("mobile").getValue(String.class);
                                     //USE THE SAME CHILD PARAMETER TO RETRIVE
                                 }
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
                                 }
                             });
-
-
-
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
@@ -207,6 +216,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
+    //check entered data
     private boolean validateForm() {
         boolean valid = true;
 
@@ -230,7 +240,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
+    //button click definition
     @Override
     public void onClick(View v)
     {

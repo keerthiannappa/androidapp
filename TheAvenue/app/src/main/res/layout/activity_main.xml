@@ -11,7 +11,7 @@
         android:id="@+id/complaints_navigation2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/complaintcolor2"
+        android:background="@color/mecolor1"
         app:menu="@menu/transaction_menu"
         android:visibility="invisible"
         app:itemIconTint="@color/selector"
@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:menu="@menu/navigation"
+        android:background="@color/mecolor1"
         app:itemTextColor="#ffffff"
         app:itemIconTint="#ffffff"
        />
