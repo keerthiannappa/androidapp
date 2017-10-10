@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment;
     BottomNavigationView complaints_navigation , navigation;
     Toolbar toolbar;
-    TextView nav_name , nav_number , eventtext;
+    TextView nav_name , nav_number;
 
     private FirebaseAuth auth;
 
@@ -126,14 +126,11 @@ public class MainActivity extends AppCompatActivity {
 
         auth=FirebaseAuth.getInstance();
 
+
         fragment=new EventFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.contentLayout,fragment,fragment.getTag()).commit();
 
         toolbar=(Toolbar) findViewById(R.id.toolbar);
-
-        eventtext=(TextView) findViewById(R.id.event_text);
-
-
 
         nav_name=(TextView) findViewById(R.id.textview_nav_name);
         nav_number=(TextView) findViewById(R.id.textView_nav_number);
@@ -166,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(mOn);
+
+
     }
 
 

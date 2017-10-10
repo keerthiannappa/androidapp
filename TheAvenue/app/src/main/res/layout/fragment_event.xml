@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.diyasstudios.theavenue.EventFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/title_Events"
-        android:id="@+id/event_text"/>
+        android:id="@+id/listview"
+        android:dividerHeight="10dp">
+    </ListView>
 
 </FrameLayout>

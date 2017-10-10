@@ -26,7 +26,6 @@
         android:layout_height="440dp"
         android:layout_marginTop="60dp"
         android:layout_weight="1.58">
-
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView

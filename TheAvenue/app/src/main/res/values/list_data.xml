@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="adobe_products">
+        <item>Payment Delayed</item>
+        <item>No Rent this month</item>
+        <item>Parking Space increased</item>
+        <item>Lift under repair</item>
+        <item>Power cut for half an hour</item>
+        <item>Turn off electric Appliances</item>
+        <item>Use back gate when arriving late</item>
+    </string-array>
+</resources>
