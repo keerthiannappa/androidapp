@@ -4,6 +4,33 @@
     android:layout_height="match_parent"
     tools:context="com.ganeshpartheeban.audiojournal.RecordingsFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
+        <TextView
+            android:id="@+id/recordings_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Click on the file to play"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listview"
+            android:divider="#ffffff"
+            android:dividerHeight="20dp"
+            android:layout_below="@+id/recordings_text"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="24dp" />
+    </RelativeLayout>
 
 </FrameLayout>
