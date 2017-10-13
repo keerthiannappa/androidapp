@@ -2,12 +2,12 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/label"
-    android:layout_width="300dp"
-    android:layout_marginLeft="50dp"
+    android:layout_width="fill_parent"
     android:layout_height="100dp"
     android:layout_marginTop="10dp"
     android:padding="10dip"
     android:textSize="16dip"
     android:textStyle="bold"
-    android:textColor="#000000">
+    android:background="@color/mecolor2"
+    android:textColor="#555555">
 </TextView>

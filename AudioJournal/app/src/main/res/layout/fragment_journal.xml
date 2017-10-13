@@ -1,0 +1,41 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ganeshpartheeban.audiojournal.JournalFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/Global"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/University"
+            android:layout_alignBottom="@+id/University"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="27dp"
+            android:text="Global" />
+
+        <Button
+            android:id="@+id/University"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="14dp"
+            android:text="University" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:id="@+id/webview"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/Global"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="24dp" />
+    </RelativeLayout>
+
+</FrameLayout>

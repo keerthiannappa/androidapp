@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AudioJournal</string>
+    <string name="title_activity_main">AudioJournal</string>
+    <string name="title_home">Home</string>
+    <string name="title_recordings">Recordings</string>
+    <string name="title_journal">Journal</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="id_arrays">
+    <item>.mp4</item>
+    <item>.ogg</item>
+</string-array>
+</resources>
