@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.diyaasstudio.theavenue_admin.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/theavenue"
+        android:layout_width="wrap_content"
+        android:layout_height="149dp"
+        app:srcCompat="@drawable/avenue" />
+    <View
+        android:id="@+id/viewadmin"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="130dp"
+        android:background="#4f5b62"></View>
+    <TextView
+        android:id="@+id/admin"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:fontFamily="sans-serif"
+        android:text="A D M I N"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_anchor="@+id/theavenue"
+        app:layout_anchorGravity="bottom|left"
+        android:layout_marginLeft="140dp"
+        android:textColor="#263238"
+        android:textStyle="bold"/>
+
+    <ScrollView
+        android:id="@+id/login_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="246dp"
+        android:layout_marginTop="200dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <View
+                android:id="@+id/viewauth"
+                android:layout_width="500dp"
+                android:layout_height="30dp"></View>
+
+            <TextView
+                android:id="@+id/authfailed"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="65dp"
+                android:fontFamily="monospace"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="47dp" />
+
+            <EditText
+                android:id="@+id/email_edit_text"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/authfailed"
+                android:layout_below="@+id/authfailed"
+                android:layout_marginLeft="30dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/password_edit_text"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/email_edit_text"
+                android:layout_alignStart="@+id/email_edit_text"
+                android:layout_below="@+id/email_edit_text"
+                android:layout_marginTop="22dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/password_edit_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="80dp"
+                android:text="Sign in" />
+
+
+            <TextView
+                android:id="@+id/emailrequired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/email_edit_text"
+                android:layout_below="@+id/email_edit_text"
+                android:text=" "
+                android:textColor="#d50000" />
+
+            <TextView
+                android:id="@+id/passwordrequired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/emailrequired"
+                android:layout_below="@+id/password_edit_text"
+                android:text=" "
+                android:textColor="#d50000" />
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
+

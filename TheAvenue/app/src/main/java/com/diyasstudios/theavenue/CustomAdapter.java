@@ -15,10 +15,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
-/**
- * Created by anupamchugh on 09/02/16.
- */
 public class CustomAdapter extends ArrayAdapter<DataModel>{
 
     private ArrayList<DataModel> dataSet;

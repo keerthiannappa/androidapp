@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "132099343543",
+    "firebase_url": "https://the-avenue-admin.firebaseio.com",
+    "project_id": "the-avenue-admin",
+    "storage_bucket": "the-avenue-admin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132099343543:android:33dec0c670fbbdd5",
+        "android_client_info": {
+          "package_name": "com.diyaasstudio.theavenue_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132099343543-qnec82skefcasrj6tlrnb50flmrb8ed8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSMTwLIP0DJTMLEJEqDvqAsvd9ZmagEc8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
