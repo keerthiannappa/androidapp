@@ -33,7 +33,6 @@ public class CustomAdapter extends ArrayAdapter<DataModel>{
         super(context, R.layout.row_item, data);
         this.dataSet = data;
         this.mContext=context;
-
     }
 
 

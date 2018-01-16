@@ -82,8 +82,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         else
                         {
                             Log.d(LoginActivity.TAG, "createUserWithEmail:success");
-                            UserDetails userDetails=new UserDetails(name,mobile,email,password);
-                            myRef.child(mobile).setValue(userDetails);
+                            UserDetails userDetails=new UserDetails(name,mobile,email,password,"0");
+                            String [] e=email.split("@");
+                            myRef.child(e[0]).setValue(userDetails);
                             startActivity(new Intent(SignUp.this,LoginActivity.class));
 
                         }

@@ -18,6 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment;
     BottomNavigationView complaints_navigation , navigation;
     Toolbar toolbar;
-    TextView nav_name , nav_number;
+    TextView nav_name , nav_number, nav_email;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("User");
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String k=user.getEmail();
+    final String[] e=k.split("@");
+    String value0,value1,value2;
 
     private FirebaseAuth auth;
 
@@ -68,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
             switch (item.getItemId()) {
 
                 case R.id.navigation_events:
@@ -132,8 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar=(Toolbar) findViewById(R.id.toolbar);
 
-        nav_name=(TextView) findViewById(R.id.textview_nav_name);
-        nav_number=(TextView) findViewById(R.id.textView_nav_number);
+
 
         toolbar.setTitle("Events");
         toolbar.setBackgroundColor(getResources().getColor(R.color.mecolor1));
@@ -163,6 +176,32 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(mOn);
+        View headerview=navigationView.getHeaderView(0);
+        nav_name=(TextView) headerview.findViewById(R.id.textview_nav_name);
+        nav_number=(TextView) headerview.findViewById(R.id.textView_nav_number);
+        nav_email=(TextView) headerview.findViewById(R.id.textView_nav_email);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                 value1 = dataSnapshot.child(e[0]).child("mobile").getValue(String.class);
+
+                 value0 = dataSnapshot.child(e[0]).child("name").getValue(String.class);
+
+                 value2 = dataSnapshot.child(e[0]).child("emailID").getValue(String.class);
+                nav_number.setText(value1);
+                nav_name.setText(value0);
+                nav_email.setText(value2);
+
+
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
 
 
     }

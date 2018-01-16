@@ -6,47 +6,42 @@
     tools:context="com.diyasstudios.theavenue.ComplaintsFragment">
 
     <FrameLayout
+        android:id="@+id/complaints_framelayout_new"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
-        android:id="@+id/complaints_framelayout_new">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBJECT"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BODY"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginTop="80dp">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="300dp"
-        app:srcCompat="@drawable/icon_attach" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Attach"
-        android:layout_marginTop="140dp"
-        android:layout_marginLeft="305dp"/>
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
-        android:visibility="invisible"
-        android:id="@+id/complaints_framelayout_existing">
+        <EditText
+            android:id="@+id/Body"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginTop="60dp"
+            android:hint="Body"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/Subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Subject"
+            android:inputType="textPersonName" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="90dp"
+            app:srcCompat="@drawable/icon_attach" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="UNDER DEERVELOPMENT"/>
+            android:layout_marginLeft="305dp"
+            android:layout_marginTop="140dp"
+            android:text="Attach" />
     </FrameLayout>
 
 
