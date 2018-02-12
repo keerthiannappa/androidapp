@@ -10,34 +10,53 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="casual"
         android:text="Please Enter Your Registration Number"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="30sp"
+        android:textSize="18sp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="72dp" />
-
-    <Button
-        android:id="@+id/go"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="235dp"
-        android:text="Go" />
+    <TextView
+        android:id="@+id/required"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="240dp"
+        android:text=" "
+        android:textColor="#d50000" />
 
     <EditText
         android:id="@+id/signup_reg"
-        android:layout_width="303dp"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="190dp"
         android:ems="10"
         android:fontFamily="casual"
         android:hint="Registration Number"
         android:inputType="number"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/go"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="240dp"
+        android:text="Go"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:id="@+id/return2signin"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RETURN TO SIGN IN"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="300dp"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 
 </android.support.design.widget.CoordinatorLayout>
