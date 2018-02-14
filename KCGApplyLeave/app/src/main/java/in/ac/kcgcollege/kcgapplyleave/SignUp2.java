@@ -30,7 +30,7 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
     DatabaseReference myRef = database.getReference("student");
     String regno,nm,emid;
     TextView tvregno,tvnm,tvemid;
-    Button register;
+    Button register,returntosignin2;
     EditText pass;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
@@ -45,6 +45,7 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
         tvnm=(TextView)findViewById(R.id.name);
         tvemid=(TextView)findViewById(R.id.emailid);
         register=(Button)findViewById(R.id.register);
+        returntosignin2=(Button)findViewById(R.id.return2signin2);
         pass=(EditText)findViewById(R.id.pass);
 
         mAuth = FirebaseAuth.getInstance();
@@ -76,6 +77,7 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
         });
 
         register.setOnClickListener(this);
+        returntosignin2.setOnClickListener(this);
 
     }
 
@@ -145,5 +147,16 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
             createAccount();
 
         }
+        if(v==returntosignin2)
+        {
+            Intent i = new Intent(SignUp2.this, LoginActivity2.class);
+            startActivity(i);
+        }
+    }
+    @Override
+    public void onBackPressed()
+    {
+
+        // super.onBackPressed(); // Comment this super call to avoid calling finish() or fragmentmanager's backstack pop operation.
     }
 }

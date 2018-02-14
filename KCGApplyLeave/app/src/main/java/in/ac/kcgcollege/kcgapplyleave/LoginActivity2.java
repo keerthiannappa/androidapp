@@ -45,10 +45,10 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_login2);
 
         mAuth = FirebaseAuth.getInstance();
-        if (mAuth.getCurrentUser() != null) {
+        /*if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity2.this, MainActivity.class));
             finish();
-        }
+        }*/
 
         //UI elements initalization
         theavenue=(ImageView) findViewById(R.id.logocse);
@@ -175,5 +175,11 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
             startActivity(new Intent(LoginActivity2.this,SignUp.class));
             finish();
         }
+    }
+    @Override
+    public void onBackPressed()
+    {
+
+        // super.onBackPressed(); // Comment this super call to avoid calling finish() or fragmentmanager's backstack pop operation.
     }
 }
