@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally{
-                    Intent i=new Intent(LoginActivity.this,LoginActivity2.class);
+                    Intent i=new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(i);
                     finish();
                 }

@@ -6,4 +6,133 @@
     android:layout_height="match_parent"
     tools:context="in.ac.kcgcollege.kcgapplyleave.MainActivity">
 
+    <Button
+        android:id="@+id/main_OD"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="350dp"
+        android:text="OD"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:id="@+id/main_Leave"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="350dp"
+        android:text="LEAVE"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:id="@+id/main_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/main_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Registration Number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="60dp" />
+    <TextView
+        android:id="@+id/main_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="eMail ID"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="22sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/main_at"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="150dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="casual"
+        android:text="      Attendance  %"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/main_attendance"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="150dp"
+        android:background="#c62828"
+        android:fontFamily="casual"
+        android:text="0"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/main_eligibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="210dp"
+        android:fontFamily="casual"
+        android:text="Eligibility"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/main_verify"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="420dp"
+        android:background="#c62828"
+        android:fontFamily="casual"
+        android:text="Email ID not verified!"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/main_verify_desc"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="460dp"
+
+        android:fontFamily="casual"
+        android:text="You will be able to apply leave/OD once you verify your emailID.
+   If you have Verified ,Please Signout and Sign in back again."
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+    <Button
+        android:id="@+id/main_signout"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="500dp"
+        android:text="Log Out"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 </android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.ac.kcgcollege.kcgapplyleave.Leave">
+
+    <RadioGroup
+        android:id="@+id/leave_rg"
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="213dp"
+        android:layout_marginLeft="100dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="71dp">
+
+        <RadioButton
+            android:id="@+id/leave_ml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Medical" />
+
+        <RadioButton
+            android:id="@+id/leave_cl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Casual" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/leave_apply"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="410dp"
+        android:text="Apply"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <ScrollView
+        android:layout_width="384dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="300dp"
+        tools:layout_editor_absoluteX="0dp">
+
+        <EditText
+            android:id="@+id/leave_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:fontFamily="casual"
+            android:inputType="textCapCharacters|textMultiLine" />
+
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/leave_datepicker_from"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/colorAccent"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <ImageButton
+        android:id="@+id/leave_datepicker_to"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/colorAccent"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <EditText
+        android:id="@+id/leave_from"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/leave_to"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:fontFamily="casual"
+        android:text="LEAVE"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/leave_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="From"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/leave_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="To"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/leave_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="No. of Days :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="150dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/leave_days"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="date" />
+    <TextView
+        android:id="@+id/leave_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Reason"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="260dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/leave_ty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Type :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="210dp"
+        android:textStyle="bold" />
+
+
+</android.support.design.widget.CoordinatorLayout>
