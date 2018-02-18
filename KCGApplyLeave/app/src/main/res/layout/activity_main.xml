@@ -130,17 +130,16 @@
 
     <TextView
         android:id="@+id/main_verify_desc"
-        android:layout_width="384dp"
+        android:layout_width="358dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="460dp"
 
         android:fontFamily="casual"
-        android:text="You will be able to apply leave/OD once you verify your emailID.
-   If you have Verified ,Please Signout and Sign in back again."
+        android:text="You will be able to apply leave/OD once you verify your emailID."
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:visibility="invisible" />
     <Button

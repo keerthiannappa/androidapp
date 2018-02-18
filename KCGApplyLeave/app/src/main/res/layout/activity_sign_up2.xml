@@ -7,6 +7,21 @@
     tools:context="in.ac.kcgcollege.kcgapplyleave.SignUp2">
 
     <TextView
+        android:id="@+id/ack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:background="@android:color/holo_red_dark"
+        android:fontFamily="casual"
+        android:text="Please Enter Valid REG NO"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

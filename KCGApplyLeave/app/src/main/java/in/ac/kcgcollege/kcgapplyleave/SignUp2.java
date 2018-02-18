@@ -29,7 +29,7 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("student");
     String regno,nm,emid;
-    TextView tvregno,tvnm,tvemid;
+    TextView tvregno,tvnm,tvemid,tvack;
     Button register,returntosignin2;
     EditText pass;
     private FirebaseAuth mAuth;
@@ -44,6 +44,7 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
         tvregno=(TextView)findViewById(R.id.registrationno);
         tvnm=(TextView)findViewById(R.id.name);
         tvemid=(TextView)findViewById(R.id.emailid);
+        tvack=(TextView)findViewById(R.id.ack);
         register=(Button)findViewById(R.id.register);
         returntosignin2=(Button)findViewById(R.id.return2signin2);
         pass=(EditText)findViewById(R.id.pass);
@@ -60,12 +61,17 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                emid = dataSnapshot.child(regno).child("email").getValue(String.class);
-                nm = dataSnapshot.child(regno).child("name").getValue(String.class);
-                tvregno.setText(regno);
-                tvemid.setText(emid);
-                tvnm.setText(nm);
-                Log.d("Data Retrieval", "Email is: " + emid);
+                if (dataSnapshot.hasChild(regno)) {
+                    emid = dataSnapshot.child(regno).child("email").getValue(String.class);
+                    nm = dataSnapshot.child(regno).child("name").getValue(String.class);
+                    tvregno.setText(regno);
+                    tvemid.setText(emid);
+                    tvnm.setText(nm);
+                    Log.d("Data Retrieval", "Email is: " + emid);
+                }
+                else{
+                    tvack.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
