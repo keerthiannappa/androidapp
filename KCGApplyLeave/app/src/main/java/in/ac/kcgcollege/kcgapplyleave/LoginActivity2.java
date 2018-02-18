@@ -32,9 +32,6 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
     View authview;
     ProgressBar progressBar;
 
-
-    public static String staticemail;
-
     private FirebaseAuth mAuth;
     public static final String TAG="EmailPassword";
 
@@ -45,10 +42,10 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_login2);
 
         mAuth = FirebaseAuth.getInstance();
-        /*if (mAuth.getCurrentUser() != null) {
+        if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity2.this, MainActivity.class));
             finish();
-        }*/
+        }
 
         //UI elements initalization
         theavenue=(ImageView) findViewById(R.id.logocse);
@@ -164,7 +161,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
     {
         if(v==login)
         {
-            staticemail=emailtext.getText().toString();
+
             progressBar.setVisibility(View.VISIBLE);
             login.setVisibility(View.INVISIBLE);
             signIn(emailtext.getText().toString(),passwordtext.getText().toString());

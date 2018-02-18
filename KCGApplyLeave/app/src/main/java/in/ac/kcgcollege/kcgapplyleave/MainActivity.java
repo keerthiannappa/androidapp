@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("student");
     TextView mname,mno,mei,mat,mel,mver,mverdesc;
-    Button mod,mleave,msignout;
+    Button mod,mleave,msignout,mcheck;
     String db_email,db_name,db_reg,db_att;
 
     @Override
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mod=(Button)findViewById(R.id.main_OD);
         mleave=(Button)findViewById(R.id.main_Leave);
         msignout=(Button)findViewById(R.id.main_signout);
+        mcheck=(Button)findViewById(R.id.main_check);
 
         auth=FirebaseAuth.getInstance();
 
@@ -60,11 +61,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    db_email = snapshot.child("email").getValue(String.class);
-                    db_att=snapshot.child("attendance").getValue(String.class);
-                    db_name=snapshot.child("name").getValue(String.class);
-                    db_reg=snapshot.getKey();
-                    if(Objects.equals(db_email, user.getEmail())){
+                    String e=snapshot.child("email").getValue(String.class);
+                    String a=snapshot.child("attendance").getValue(String.class);
+                    String n=snapshot.child("name").getValue(String.class);
+                    String r=snapshot.getKey();
+                    if(Objects.equals(e, user.getEmail())){
+                        db_email=e;
+                        db_att=a;
+                        db_name=n;
+                        db_reg=r;
                         mei.setText(db_email);
                         mname.setText(db_name);
                         mno.setText(db_reg);
@@ -101,19 +106,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mod.setOnClickListener(this);
         mleave.setOnClickListener(this);
         msignout.setOnClickListener(this);
+        mcheck.setOnClickListener(this);
 
     }
     public void onClick(View v)
     {
         if(v==mod){
-            startActivity(new Intent(MainActivity.this,Od.class));
+            Intent i=new Intent(MainActivity.this,Od.class);
+            i.putExtra("ref",db_reg);
+            startActivity(i);
         }
         if(v==mleave){
-            startActivity(new Intent(MainActivity.this,Leave.class));
+            Intent i=new Intent(MainActivity.this,Leave.class);
+            i.putExtra("ref",db_reg);
+            startActivity(i);
         }
         if(v==msignout){
             auth.signOut();
             startActivity(new Intent(MainActivity.this,LoginActivity2.class));
+        }
+        if(v==mcheck){
+            Intent i=new Intent(MainActivity.this,Status.class);
+            i.putExtra("ref",db_reg);
+            startActivity(i);
         }
 
     }

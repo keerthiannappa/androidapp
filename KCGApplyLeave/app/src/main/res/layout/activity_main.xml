@@ -7,12 +7,22 @@
     tools:context="in.ac.kcgcollege.kcgapplyleave.MainActivity">
 
     <Button
+        android:id="@+id/main_check"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="350dp"
+        android:text="View Last Request"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+    <Button
         android:id="@+id/main_OD"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="300dp"
         android:text="OD"
         android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -21,63 +31,69 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginLeft="185dp"
+        android:layout_marginTop="300dp"
         android:text="LEAVE"
         android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
         android:id="@+id/main_name"
-        android:layout_width="wrap_content"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Name"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/main_reg"
-        android:layout_width="wrap_content"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Registration Number"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="60dp" />
+        android:textSize="24sp" />
+
     <TextView
         android:id="@+id/main_email"
-        android:layout_width="wrap_content"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="eMail ID"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="22sp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp" />
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/main_at"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="150dp"
         android:background="@color/colorAccent"
-        android:fontFamily="casual"
-        android:text="      Attendance  %"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Attendance  %"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="26sp" />
 
     <TextView
         android:id="@+id/main_attendance"
-        android:layout_width="135dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="250dp"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="150dp"
         android:background="#c62828"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-condensed"
         android:text="0"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -85,12 +101,13 @@
 
     <TextView
         android:id="@+id/main_eligibility"
-        android:layout_width="wrap_content"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="210dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-condensed"
         android:text="Eligibility"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp" />
@@ -129,9 +146,9 @@
     <Button
         android:id="@+id/main_signout"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="150dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
+        android:layout_marginLeft="90dp"
         android:layout_marginTop="500dp"
         android:text="Log Out"
         android:textAppearance="@style/TextAppearance.AppCompat" />

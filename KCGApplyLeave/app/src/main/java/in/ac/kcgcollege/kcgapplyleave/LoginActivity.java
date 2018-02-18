@@ -6,18 +6,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
     ImageView splash;
+    TextView a,b,c,d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         splash=(ImageView)findViewById(R.id.imageView);
+        a=(TextView)findViewById(R.id.textView6);
+        b=(TextView)findViewById(R.id.textView7);
+        c=(TextView)findViewById(R.id.textView8);
+        d=(TextView)findViewById(R.id.textView9);
+
         Animation animation= AnimationUtils.loadAnimation(this,R.anim.transition);
         splash.startAnimation(animation);
+        a.startAnimation(animation);
+        b.startAnimation(animation);
+        c.startAnimation(animation);
+        d.startAnimation(animation);
         Thread timer=new Thread(){
             public void run()
             {
@@ -27,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally{
-                    Intent i=new Intent(LoginActivity.this,MainActivity.class);
+                    Intent i=new Intent(LoginActivity.this,LoginActivity2.class);
                     startActivity(i);
                     finish();
                 }
